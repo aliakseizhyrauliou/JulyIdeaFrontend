@@ -1,0 +1,15 @@
+header{
+    height: 70px;
+    background-color: #2f2c2b;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name{
+    color: white;
+    font-family: "Inter",sans-serif;
+    margin-left: 70px;
+    font-size: 20px;
+}
