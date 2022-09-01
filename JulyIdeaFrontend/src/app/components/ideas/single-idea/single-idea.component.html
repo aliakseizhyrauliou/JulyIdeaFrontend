@@ -1,8 +1,24 @@
 <div class="idea-wrapper" *ngIf="Idea">
     <div class="idea-header">
-         {{Idea.name}}
+        <div class="conatiner">
+            {{Idea.name}}
+            <div class="circle-name">
+               <div class="circle-avatar"></div>
+               <div class="user-name">Alexey Zhurauliou</div>
+           </div>
+        </div>
+        <div class="stack">
+            <span *ngFor="let i of Idea.stack">
+                {{i}}
+            </span>
+        </div>
     </div>
     <div class="idea-descriptions">
-        {{Idea.description}}
+        <div class="idea-desc">
+            {{Idea.description}}
+        </div>
+        <div class="idea-info">
+            Info
+        </div>
     </div>
 </div>

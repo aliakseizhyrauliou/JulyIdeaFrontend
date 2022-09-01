@@ -4,4 +4,5 @@ export interface IIdea{
     name: string;
     description: string;
     StackFullString: string;
+    stack: string[];
 }

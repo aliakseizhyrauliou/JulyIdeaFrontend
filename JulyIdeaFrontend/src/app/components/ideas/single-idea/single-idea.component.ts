@@ -12,6 +12,7 @@ export class SingleIdeaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.Idea.stack)
   }
 
 }

@@ -1,17 +1,74 @@
 .idea-wrapper{
     background-color: white;
-    border: 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    min-width: 700px;
+    height: 350px;
+
 
     .idea-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding-left: 10px;
+        height: 100px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: antiquewhite;
+        box-sizing: border-box;
+        font-size: 25px;
+
+        .circle-name{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .circle-avatar{
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 25px;
+            height: 25px;
+            background-color: black;
+        }
     }
 
     .idea-descriptions{
+        padding-top: 10px;
+        display: flex;
+        box-sizing: border-box;
         width: 100%;
+        flex: 1;
+        align-items: center;
+        overflow: hidden;
+        line-height: 1.5;
+    }
+    .idea-desc{
+        height: 90%;
+        width: 60%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .idea-info{
+        width: 40%;
+        height: 90%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .stack{
+        margin-right: 20px;
+        font-size: 18px;
+    }
+
+    .conatiner{
+        margin-left: 20px;
     }
 
 }
