@@ -1,0 +1,17 @@
+.idea-wrapper{
+    background-color: white;
+    border: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .idea-header{
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .idea-descriptions{
+        width: 100%;
+    }
+
+}
