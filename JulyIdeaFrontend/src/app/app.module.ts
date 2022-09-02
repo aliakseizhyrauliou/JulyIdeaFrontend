@@ -10,12 +10,21 @@ import { PostHeaderInfoComponent } from './components/startpage/post-header-info
 import { StartInfoBodyComponent } from './components/startpage/start-info-body/start-info-body.component';
 import { StartPageComponent } from './components/startpage/start-page/start-page.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SingleIdeaComponent } from './components/ideas/single-idea/single-idea.component';
 import { LoginComponent } from './components/login/login.component';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { AuthInterceptor } from './auth.interceptor';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthGuard } from './AuthGuard';
 
+
+export function tokenGetter() { 
+  return localStorage.getItem("access_token"); 
+}
 
 @NgModule({
   declarations: [
@@ -36,9 +45,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    NgbModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:4200"],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true},
+    [AuthGuard]
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

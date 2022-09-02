@@ -29,10 +29,13 @@
         box-sizing: border-box;
         font-size: 25px;
 
+
         .circle-name{
             font-size: 16px;
             display: flex;
             align-items: center;
+            margin-top: 10px;
+
         }
 
         .circle-avatar{
@@ -89,13 +92,24 @@
 
     }
 
-    .stack{
-        margin-right: 20px;
+    .category{
+        margin-right: 50px;
         font-size: 18px;
+        text-align: center;
+        width: 100px;
     }
 
     .conatiner{
         margin-left: 20px;
     }
 
+    .finance{
+        background-color: antiquewhite;
+
+    }
+
+    .development{
+        background-color: #c7e2ff;
+
+    }
 }

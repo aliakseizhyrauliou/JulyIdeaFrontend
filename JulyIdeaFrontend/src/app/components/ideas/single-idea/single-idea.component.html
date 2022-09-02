@@ -1,5 +1,5 @@
 <div class="idea-wrapper" *ngIf="Idea">
-    <div class="idea-header">
+    <div class="idea-header" [class]="class">
         <div class="conatiner">
             {{Idea.name}}
             <div class="circle-name">
@@ -7,22 +7,22 @@
                <div class="user-name">Alexey Zhurauliou</div>
            </div>
         </div>
-        <div class="stack">
-            <span *ngFor="let i of Idea.stack">
-                {{i}}
-            </span>
+        <div class="category">
+            {{Idea.categoryString}}
         </div>
     </div>
     <div class="idea-descriptions">
         <div class="idea-desc">
             {{Idea.description}}
         </div>
-        <div class="idea-info">
+        <div class="idea-info" [class]="class">
             <div class="info-header">
                 Idea info
             </div>
             <div class="idea-info-body">
-                Some info
+                <span *ngFor="let i of Idea.stack">
+                    {{i}}
+                </span>
             </div>
         </div>
     </div>

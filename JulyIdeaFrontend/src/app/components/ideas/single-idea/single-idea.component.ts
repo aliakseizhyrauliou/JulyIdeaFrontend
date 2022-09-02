@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IdeaCategory } from 'src/app/models/enums/IdeaType';
 import { IIdea } from 'src/app/models/Idea';
 
 @Component({
@@ -8,11 +9,32 @@ import { IIdea } from 'src/app/models/Idea';
 })
 export class SingleIdeaComponent implements OnInit {
 
+  DEVELOPMENT : string = "development";
+  FINANCE : string = "finance";
+  ART : string = "art";
+
   @Input() Idea!: IIdea;
-  constructor() { }
+
+  class: string = "";
+  constructor() {
+   }
 
   ngOnInit(): void {
-    console.log(this.Idea.stack)
+    this.checkType();
+  }
+
+  checkType(){
+    switch(this.Idea.category){
+      case 1:
+        this.class = this.DEVELOPMENT;
+        break;
+      case 2:
+        this.class = this.FINANCE;
+        break;
+      case 3:
+        this.class = this.ART;
+        break;
+    }
   }
 
 }

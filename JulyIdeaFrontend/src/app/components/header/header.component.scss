@@ -12,10 +12,29 @@ header{
     a{
         text-decoration: none;
     }
+
+    .name-links{
+        display: flex;
+        justify-content: space-between;
+
+        .link{
+            margin-left: 70px;
+        }
+    }
 }
 
 .name{
     color: white;
     font-family: "Inter",sans-serif;
     font-size: 20px;
+}
+.userInfo{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+
+    span{
+        color: white;
+        font-size: 17px;
+    }
 }

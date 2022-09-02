@@ -1,6 +1,14 @@
 <div>
     <header>
-        <a routerLink="/"><div class="name">JulyIdea</div></a>
-        <a routerLink="/ideas" style="color: white">Ideas</a>
+        <div class="name-links">
+            <a routerLink="/"><div class="name">JulyIdea</div></a>
+            <a routerLink="/ideas" style="color: white" class="link">Ideas</a>
+        </div>
+
+        <div class="userInfo">
+            <span *ngIf="isAuthentificated()" >Hello, {{userName}}</span>
+            <span (click)="logout()">Logout</span>
+        </div>
+
     </header>
 </div>
