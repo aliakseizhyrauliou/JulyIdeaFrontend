@@ -1,15 +1,21 @@
 header{
+    box-sizing: border-box;
     height: 70px;
     background-color: #2f2c2b;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 70px;
+    padding-right: 100px;
+
+    a{
+        text-decoration: none;
+    }
 }
 
 .name{
     color: white;
     font-family: "Inter",sans-serif;
-    margin-left: 70px;
     font-size: 20px;
 }

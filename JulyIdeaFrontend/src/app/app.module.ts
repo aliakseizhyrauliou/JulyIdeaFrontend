@@ -12,6 +12,9 @@ import { StartPageComponent } from './components/startpage/start-page/start-page
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SingleIdeaComponent } from './components/ideas/single-idea/single-idea.component';
+import { LoginComponent } from './components/login/login.component';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -24,12 +27,16 @@ import { SingleIdeaComponent } from './components/ideas/single-idea/single-idea.
     StartPageComponent,
     IdeasComponent,
     SingleIdeaComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
