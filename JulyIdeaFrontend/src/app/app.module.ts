@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AuthInterceptor } from './auth.interceptor';
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from './AuthGuard';
+import { IdeaSearchComponent } from './components/idea-search/idea-search.component';
 
 
 export function tokenGetter() { 
@@ -37,6 +38,7 @@ export function tokenGetter() {
     IdeasComponent,
     SingleIdeaComponent,
     LoginComponent,
+    IdeaSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,8 +10,17 @@ export class IdeasServiceService {
 
   private apiUrl : string  = 'https://localhost:7171/api';
   constructor(private http : HttpClient) { }
+  private isGetAllLast: boolean = true;
 
   getIdeas() : Observable<IIdea[]>{
-    return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetAllIdeas")
+    return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetAllIdeas");
+    
+  }
+
+  findIdeaByName(name: string) : Observable<IIdea[]>{
+    if(!name || name.trim() === ""){
+      return this.getIdeas();
+    }
+    return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetIdeaByName?name=" + name);
   }
 }

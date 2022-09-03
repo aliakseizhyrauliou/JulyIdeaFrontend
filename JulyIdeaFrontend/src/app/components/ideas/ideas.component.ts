@@ -15,6 +15,13 @@ export class IdeasComponent implements OnInit {
   ngOnInit(): void {
     this.ideasService.getIdeas()
       .subscribe(ideas => this._ideas = ideas);
+      
+  }
+
+  search(name: string){
+    this.ideasService.findIdeaByName(name)
+      .subscribe(ideas => this._ideas = ideas);
+    
   }
 
 }

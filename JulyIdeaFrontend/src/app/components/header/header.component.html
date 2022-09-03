@@ -1,4 +1,4 @@
-<div>
+<div class="header-wrapper">
     <header>
         <div class="name-links">
             <a routerLink="/"><div class="name">JulyIdea</div></a>
@@ -6,8 +6,8 @@
         </div>
 
         <div class="userInfo">
-            <span *ngIf="isAuthentificated()" >Hello, {{userName}}</span>
-            <span (click)="logout()">Logout</span>
+            <span *ngIf="isAuthentificated" >Hello, {{userName}}</span>
+            <span *ngIf="isAuthentificated" (click)="logout()">Logout</span>
         </div>
 
     </header>

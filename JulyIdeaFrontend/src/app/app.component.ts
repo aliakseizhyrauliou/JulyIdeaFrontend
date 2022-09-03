@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 
 import { NgxMasonryOptions, NgxMasonryComponent } from 'ngx-masonry';
 
@@ -11,5 +11,17 @@ import { NgxMasonryOptions, NgxMasonryComponent } from 'ngx-masonry';
 })
 export class AppComponent {
   title = 'JulyIdeaFrontend';
+
+  isAuthentificated() :boolean {
+    if(localStorage.getItem("access_token")){
+      return true;
+    }
+    return false;
+  }
+
+  getUserName() : string{
+    return localStorage.getItem("user_name")!;
+  }
+
 
 }

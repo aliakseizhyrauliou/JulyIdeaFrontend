@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 
 @Component({
@@ -8,22 +8,18 @@ import { Route, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  userName! : string;
+  @Input() userName!: string;
+  @Input() isAuthentificated!: boolean;
   constructor(private router: Router) {
-    if(this.isAuthentificated()){
+    if(this.isAuthentificated){
       this.userName = localStorage.getItem("user_name")!;
     }
    }
 
-  isAuthentificated() :boolean {
-    if(localStorage.getItem("access_token")){
-      return true;
-    }
-    return false;
-  }
+
 
   ngOnInit(): void {
-
+ 
   }
 
   logout(){
