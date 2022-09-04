@@ -1,0 +1,34 @@
+<div *ngIf="idea" class="wrapper">
+    <div class="idea-header">
+        <div class="conatiner">
+            {{idea.name}}
+            <div class="circle-name">
+               <div class="circle-avatar"></div>
+               <div class="user-name">Alexey Zhurauliou</div>
+           </div>
+        </div>
+        <div class="category">
+            {{idea.categoryString}}
+        </div>
+    </div>
+    <div class="idea-body">
+        <div class="desription">
+            {{idea.description}}
+        </div>
+        <div class="chain-wrapper">
+            <div class="header-chain">Chain of elements</div>
+            <mat-tab-group mat-align-tabs="center">
+                <mat-tab label="Suggested">
+                    <ng-template matTabContent>
+                        <app-chain-template [ideaId]="idea.id" [onlyApproved]="false"></app-chain-template>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="Approved">
+                    <ng-template matTabContent>
+                        <app-chain-template [ideaId]="idea.id" [onlyApproved]="true"></app-chain-template>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

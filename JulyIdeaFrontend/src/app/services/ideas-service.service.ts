@@ -23,4 +23,8 @@ export class IdeasServiceService {
     }
     return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetIdeaByName?name=" + name);
   }
+
+  getIdeaById(id: number) : Observable<IIdea>{
+    return this.http.get<IIdea>(this.apiUrl + "/Ideas/GetIdeaById?ideaId=" + id);
+  }
 }

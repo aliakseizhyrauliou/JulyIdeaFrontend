@@ -21,6 +21,10 @@ import { AuthInterceptor } from './auth.interceptor';
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from './AuthGuard';
 import { IdeaSearchComponent } from './components/idea-search/idea-search.component';
+import { IdeaInfoComponent } from './components/idea-info/idea-info.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ChainElementComponent } from './components/idea-info/chain-template/chain-element/chain-element.component';
+import { ChainTemplateComponent } from './components/idea-info/chain-template/chain-template.component';
 
 
 export function tokenGetter() { 
@@ -39,6 +43,9 @@ export function tokenGetter() {
     SingleIdeaComponent,
     LoginComponent,
     IdeaSearchComponent,
+    IdeaInfoComponent,
+    ChainElementComponent,
+    ChainTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,7 @@ export function tokenGetter() {
     ReactiveFormsModule,
     MatIconModule,
     NgbModule,
+    MatTabsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

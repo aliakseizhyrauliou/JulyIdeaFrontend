@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IIdea } from 'src/app/models/Idea';
 import { IdeasServiceService } from 'src/app/services/ideas-service.service';
 
@@ -9,7 +10,9 @@ import { IdeasServiceService } from 'src/app/services/ideas-service.service';
 })
 export class IdeasComponent implements OnInit {
 
-  constructor(private ideasService: IdeasServiceService) { }
+  constructor(private ideasService: IdeasServiceService,
+    private router: Router) { }
+
   _ideas!: IIdea[];
 
   ngOnInit(): void {
@@ -22,6 +25,10 @@ export class IdeasComponent implements OnInit {
     this.ideasService.findIdeaByName(name)
       .subscribe(ideas => this._ideas = ideas);
     
+  }
+
+  redirect(id: number){
+    this.router.navigate(["details/" + id]);
   }
 
 }
