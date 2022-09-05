@@ -22,6 +22,7 @@ export class LoginService {
         localStorage.setItem("access_token", result.result.accessToken);
         localStorage.setItem("refresh_token", result.result.refreshToken);
         localStorage.setItem("user_name", result.result.userName);
+        localStorage.setItem("user_id", result.result.userId.toString());
         return true;
       }
       return false;
@@ -34,6 +35,8 @@ export class LoginService {
         localStorage.setItem("access_token", responce?.result.accessToken!);
         localStorage.setItem("refresh_token", responce?.result.refreshToken!);
         localStorage.setItem("user_name", responce?.result.userName);
+        localStorage.setItem("user_id", responce?.result.userId.toString());
+
         return true;
       }
       return false;

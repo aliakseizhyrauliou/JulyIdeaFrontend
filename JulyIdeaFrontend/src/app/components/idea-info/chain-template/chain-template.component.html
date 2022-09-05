@@ -1,5 +1,8 @@
 <div *ngIf="elements">
     <div *ngFor="let element of elements">
-        <app-chain-element [element]="element" class="element"></app-chain-element>
+        <app-chain-element [element]="element" [onlyApproved]='onlyApproved' class="element"></app-chain-element>
     </div>
+</div>
+<div *ngIf="!elements?.length">
+    <span>There's no elements yet</span>
 </div>

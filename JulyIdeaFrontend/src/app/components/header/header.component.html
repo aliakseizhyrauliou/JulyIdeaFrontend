@@ -3,11 +3,13 @@
         <div class="name-links">
             <a routerLink="/"><div class="name">JulyIdea</div></a>
             <a routerLink="/ideas" style="color: white" class="link">Ideas</a>
+            <a routerLink="/myprofile" *ngIf="isAuthentificated" style="color: white" class="link">Profile</a>
         </div>
 
         <div class="userInfo">
             <span *ngIf="isAuthentificated" >Hello, {{userName}}</span>
             <span *ngIf="isAuthentificated" (click)="logout()">Logout</span>
+            <a routerLink="/login" *ngIf="isAuthentificated === false"><span >Login</span></a>
         </div>
 
     </header>

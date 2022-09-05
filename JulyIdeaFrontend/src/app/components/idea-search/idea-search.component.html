@@ -6,13 +6,13 @@
         <div class="search-component">
             <input #searchBox id="search-box" placeholder="Stack" />
         </div>
-        <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-            <button type="button" class="btn btn-outline-primary me-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownManual">
-              <button ngbDropdownItem>Development</button>
-              <button ngbDropdownItem>Finance</button>
-              <button ngbDropdownItem>Music</button>
-            </div>
-          </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Favorite food</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let value of categories" [value]="value">
+                {{value}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
     </div>    
 </div>

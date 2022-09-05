@@ -9,6 +9,7 @@ import { IChainElement } from 'src/app/models/IChainElement';
 export class ChainElementComponent implements OnInit {
 
   @Input() element!: IChainElement;
+  @Input() onlyApproved! :boolean;
 
   constructor() { }
 

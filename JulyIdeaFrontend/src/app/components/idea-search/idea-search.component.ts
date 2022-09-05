@@ -9,6 +9,11 @@ export class IdeaSearchComponent implements OnInit {
   
   @Output() ideaSearch = new EventEmitter<string>();
 
+  categories: string[] = [
+    "Finanse",
+    "Development",
+    "Art"
+  ]
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatSelectModule} from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,6 +25,7 @@ import { IdeaInfoComponent } from './components/idea-info/idea-info.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ChainElementComponent } from './components/idea-info/chain-template/chain-element/chain-element.component';
 import { ChainTemplateComponent } from './components/idea-info/chain-template/chain-template.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 
 export function tokenGetter() { 
@@ -46,6 +47,7 @@ export function tokenGetter() {
     IdeaInfoComponent,
     ChainElementComponent,
     ChainTemplateComponent,
+    MyProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ export function tokenGetter() {
     MatIconModule,
     NgbModule,
     MatTabsModule,
+    MatSelectModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
