@@ -1,0 +1,124 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+.idea-wrapper{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    height: 350px;
+    animation: 0.3s show ease;
+    margin-bottom: 100px;
+    width: 80%;
+    cursor: pointer;
+    
+
+    @keyframes show {
+        from { opacity: 0;transform: translateX(-3%);}
+        to { opacity: 1;transform: translateX(0%) }
+      }
+
+
+    .idea-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: antiquewhite;
+        box-sizing: border-box;
+        font-size: 25px;
+
+
+        .circle-name{
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+        }
+
+        .circle-avatar{
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 25px;
+            height: 25px;
+            background-color: black;
+        }
+    }
+
+    .idea-descriptions{
+        padding-top: 10px;
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        flex: 1;
+        align-items: center;
+        overflow: hidden;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+    .idea-desc{
+        height: 90%;
+        width: 60%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .idea-info{
+        width: 40%;
+        height: 90%;
+        box-sizing: border-box;
+        background-color: antiquewhite;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+
+        .info-header{
+            background: #2f2c2b;
+            width: 100%;
+            height: 40px;
+            border-top-left-radius: 10px;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .idea-info-body{
+            padding: 10px 20px;
+        }
+
+    }
+
+    .category{
+        margin-right: 50px;
+        font-size: 18px;
+        text-align: center;
+        width: 100px;
+    }
+
+    .conatiner{
+        margin-left: 20px;
+    }
+
+    .finance{
+        background-color: antiquewhite;
+
+    }
+
+    .development{
+        background-color: #c7e2ff;
+
+    }
+
+    form{
+        width: 100%;
+    }
+}

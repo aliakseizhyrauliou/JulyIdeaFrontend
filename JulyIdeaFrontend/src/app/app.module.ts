@@ -26,6 +26,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ChainElementComponent } from './components/idea-info/chain-template/chain-element/chain-element.component';
 import { ChainTemplateComponent } from './components/idea-info/chain-template/chain-template.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { UserIdeasComponent } from './components/my-profile/user-ideas/user-ideas.component';
+import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
 
 
 export function tokenGetter() { 
@@ -48,6 +50,8 @@ export function tokenGetter() {
     ChainElementComponent,
     ChainTemplateComponent,
     MyProfileComponent,
+    UserIdeasComponent,
+    CreateIdeaComponent,
   ],
   imports: [
     BrowserModule,

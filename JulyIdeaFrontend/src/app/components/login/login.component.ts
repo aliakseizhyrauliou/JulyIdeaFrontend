@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
 
   async login(){
     let loginResult = await this.loginService.login(this.loginModel);
-    debugger;
     if(loginResult){
       this.router.navigate(['/ideas']);
     }

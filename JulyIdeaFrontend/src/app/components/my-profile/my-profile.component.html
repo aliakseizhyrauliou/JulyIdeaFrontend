@@ -1,6 +1,12 @@
 <div class="main-wrapper" *ngIf="currentUser">
     <div class="wrapper-profile">
         <div class="user-name">{{currentUser.firstName}} {{currentUser.lastName}}</div>
-        <div class="user-info"></div>
+        <div class="user-info">
+            {{currentUser.age}}{{currentUser.email}}
+        </div>
+        <div class="user-ideas">
+            <div class="ideas-header">Your ideas</div>
+            <app-user-ideas [userId]="currentUser.id"></app-user-ideas>
+        </div>
     </div>
 </div>

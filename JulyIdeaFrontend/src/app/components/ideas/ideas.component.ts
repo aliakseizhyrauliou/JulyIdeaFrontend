@@ -27,8 +27,5 @@ export class IdeasComponent implements OnInit {
     
   }
 
-  redirect(id: number){
-    this.router.navigate(["details/" + id]);
-  }
 
 }

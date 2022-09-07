@@ -1,4 +1,4 @@
-<div class="idea-wrapper" *ngIf="Idea">
+<div class="idea-wrapper" *ngIf="Idea" (click)="redirect(Idea.id)">
     <div class="idea-header" [class]="class">
         <div class="conatiner">
             {{Idea.name}}

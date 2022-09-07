@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { IdeaCategory } from 'src/app/models/enums/IdeaType';
 import { IIdea } from 'src/app/models/Idea';
 
@@ -16,7 +17,7 @@ export class SingleIdeaComponent implements OnInit {
   @Input() Idea!: IIdea;
 
   class: string = "";
-  constructor() {
+  constructor(private router: Router) {
    }
 
   ngOnInit(): void {
@@ -35,6 +36,10 @@ export class SingleIdeaComponent implements OnInit {
         this.class = this.ART;
         break;
     }
+  }
+
+  redirect(id: number){
+    this.router.navigate(["details/" + id]);
   }
 
 }
