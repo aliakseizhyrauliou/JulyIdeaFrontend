@@ -1,35 +1,34 @@
 <div class="wrapper">
-    <div class="idea-wrapper">
-        <form [formGroup]="ideaForm">
-            <div class="idea-header">
-                <div class="conatiner">
-                    <input name="name" formControlName="ideaName" [(ngModel)]='idea.name'/>
-                    <div class="circle-name">
-                       <div class="circle-avatar"></div>
-                       <div class="user-name">Alexey Zhurauliou</div>
-                   </div>
-                </div>
-                <div class="category">
-                    <input name="category" formControlName="ideaCategory"/>
-                </div>
+    <div class="idea-wrapper" [formGroup]="ideaForm">
+        <div class="idea-header">
+            <div class="conatiner">
+                <input  placeholder="name" formControlName='name'/>
+                <div class="circle-name">
+                   <div class="circle-avatar"></div>
+                   <div class="user-name">Alexey Zhurauliou</div>
+               </div>
             </div>
-            <div class="idea-descriptions">
-                <div class="idea-desc">
-                    <input name="description" formControlName="ideaDescription"/>
-                </div>
-                <div class="idea-info">
-                    <div class="info-header">
-                        Idea info
-                    </div>
-                    <div class="idea-info-body">
-                    <div class="form-group" *ngFor="let stack of getFormsControls()['controls']; let i = index">
-                        <label>Stakck</label>
-                        <input class="form-control" formControlName="{{i}}" />
-                    </div>
-                    </div>
-                </div>
+            <div class="category">
+                <select multiple formControlName="category"  (change)="changeCategory($event)">
+                    <option *ngFor="let suit of category">{{suit.title}}</option>
+                </select>
             </div>
-        </form>
+        </div>
+        <div class="idea-descriptions">
+            <div class="idea-desc">
+                <input formControlName="description"  placeholder="desc" type="text"/>
+            </div>
+            <div class="idea-info">
+                <div class="info-header">
+                </div>
+                <div class="idea-info-body" formArrayName="stack">
+                    <ng-container *ngFor="let stack of getFormsControls()['controls']; let i = index;">
+                        <input type='text' formControlName={{i}}/>
+                    </ng-container>
+                </div>
+                <button (click)="addStack()"></button>
+            </div>
+        </div>
+        <button (click)="send()"></button>
     </div>
-    <div (click)="createIdea()">OK</div>
 </div>
