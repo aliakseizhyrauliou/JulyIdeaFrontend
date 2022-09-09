@@ -4,6 +4,7 @@ import { IIdea } from 'src/app/models/Idea';
 import { IdeasServiceService } from 'src/app/services/ideas-service.service';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder} from '@angular/forms';
 import { IdeaCategory } from 'src/app/models/enums/IdeaType';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-create-idea',
@@ -15,6 +16,7 @@ export class CreateIdeaComponent implements OnInit {
   category = [{value : IdeaCategory.Development, title: "Development"}, {value: IdeaCategory.Art, title: "Art"}];
   idea: IIdea;
   ideaForm: FormGroup;
+  selectedOption: String = "Select category";  
 
   constructor(private ideaService: IdeasServiceService,
     private route: Router,
@@ -22,10 +24,10 @@ export class CreateIdeaComponent implements OnInit {
 
     this.idea = {} as IIdea;
     this.ideaForm = new FormGroup({
-      name : new FormControl(''),
-      category: new FormControl(''),
-      description: new FormControl(''),
-      categoryString: new FormControl(''),
+      name : new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      categoryString: new FormControl('', Validators.required),
       stack: new FormArray([
 
       ])
@@ -43,9 +45,10 @@ export class CreateIdeaComponent implements OnInit {
     return this.ideaForm.controls['stack'] as FormArray;
   } 
 
-  changeCategory(e : Event){
+  changeCategory(e : MatSelectChange){
+    this.selectedOption = e.value[0];
     let value = this.category
-      .find(x => x.title === (e.target as HTMLInputElement).value)?.value;
+      .find(x => x.title === e.value[0])?.value;
     debugger;
     this.ideaForm.controls["category"].setValue(value),{
       onlySelf: true
@@ -56,6 +59,9 @@ export class CreateIdeaComponent implements OnInit {
     (<FormArray>this.ideaForm.controls["stack"]).push(new FormControl(''));
   }
   send(){
+    if(!this.ideaForm.valid){
+      return;
+    }
     this.idea = Object.assign(this.idea, this.ideaForm.value);
     this.ideaService.createIdea(this.idea)
     .subscribe(x => x);

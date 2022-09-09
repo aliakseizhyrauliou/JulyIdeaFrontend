@@ -3,6 +3,8 @@
     justify-content: center;
     padding-top: 100px;
 }
+
+
 .idea-wrapper{
     background-color: white;
     border-radius: 10px;
@@ -15,6 +17,16 @@
     margin-bottom: 100px;
     width: 80%;
     cursor: pointer;
+
+    #addStack{
+        justify-self: flex-end;
+    }
+
+    #send{
+        align-self: flex-start;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
     
 
     @keyframes show {
@@ -79,6 +91,8 @@
         background-color: antiquewhite;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
+        display: flex;
+        flex-direction: column;
 
 
         .info-header{
@@ -122,4 +136,5 @@
     form{
         width: 100%;
     }
+
 }

@@ -9,9 +9,12 @@
                </div>
             </div>
             <div class="category">
-                <select multiple formControlName="category"  (change)="changeCategory($event)">
-                    <option *ngFor="let suit of category">{{suit.title}}</option>
-                </select>
+                    <mat-label>{{selectedOption}}</mat-label>
+                    <mat-select multiple formControlName="category" (selectionChange)="changeCategory($event)" >
+                      <mat-option *ngFor="let suit of category" [value]="suit.title"  [attr.selected] ="suit.title === selectedOption">
+                        {{suit.title}}
+                      </mat-option>
+                    </mat-select>
             </div>
         </div>
         <div class="idea-descriptions">
@@ -21,14 +24,14 @@
             <div class="idea-info">
                 <div class="info-header">
                 </div>
-                <div class="idea-info-body" formArrayName="stack">
-                    <ng-container *ngFor="let stack of getFormsControls()['controls']; let i = index;">
+                <div class="idea-info-body" formArrayName="stack" style="flex:1;">
+                    <ng-container *ngFor="let stack of getFormsControls()['controls']; let i = index;" class="stack">
                         <input type='text' formControlName={{i}}/>
                     </ng-container>
                 </div>
-                <button (click)="addStack()"></button>
+                <button (click)="addStack()" type="button" id="addStack" class="btn btn-warning">Add Stack</button>
             </div>
         </div>
-        <button (click)="send()"></button>
+        <button (click)="send()" type="button" class="btn btn-dark" id="send">Create</button>
     </div>
 </div>
