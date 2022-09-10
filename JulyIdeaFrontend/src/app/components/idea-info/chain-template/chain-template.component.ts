@@ -11,6 +11,7 @@ export class ChainTemplateComponent implements OnInit {
 
   @Input() ideaId!: number;
   @Input() onlyApproved!: boolean;
+  @Input() ownerId! : number;
 
   elements!: IChainElement[];
 
@@ -24,6 +25,13 @@ export class ChainTemplateComponent implements OnInit {
   getChainElementsOfIdea(ideaId: number, onlyApproved: boolean) : void{
     this.chainService.getElementsByIdeaId(ideaId, onlyApproved)
       .subscribe(elements => this.elements = elements);
+  }
+
+  approvedElement(elementId : number){
+   this.chainService.approvedElement(elementId)
+    .subscribe(x => {
+      this.getChainElementsOfIdea(this.ideaId, this.onlyApproved);
+    }); 
   }
 
 }

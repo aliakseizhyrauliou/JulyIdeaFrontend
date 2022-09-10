@@ -1,0 +1,7 @@
+<div class="wrapper">
+    <div class="create-element" [formGroup]="elementForm">
+        <input formControlName="name" placeholder="name" class="name">
+        <textarea formControlName="description" placeholder="description" class="description"></textarea>
+    </div>
+    <button type="submit" (click)="createElement()">Send</button>
+</div>

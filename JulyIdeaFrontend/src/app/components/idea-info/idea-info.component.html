@@ -20,7 +20,7 @@
             <mat-tab-group mat-align-tabs="center">
                 <mat-tab label="Suggested">
                     <ng-template matTabContent>
-                        <app-chain-template [ideaId]="idea.id" [onlyApproved]="false"></app-chain-template>
+                        <app-chain-template [ideaId]="idea.id" [onlyApproved]="false" [ownerId]="idea.userId"></app-chain-template>
                     </ng-template>
                 </mat-tab>
                 <mat-tab label="Approved">

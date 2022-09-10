@@ -64,7 +64,7 @@ export class CreateIdeaComponent implements OnInit {
     }
     this.idea = Object.assign(this.idea, this.ideaForm.value);
     this.ideaService.createIdea(this.idea)
-    .subscribe(x => x);
+      .subscribe(x => x);
   }
 
 }

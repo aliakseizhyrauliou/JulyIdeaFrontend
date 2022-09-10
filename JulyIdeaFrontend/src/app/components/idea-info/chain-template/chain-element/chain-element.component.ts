@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IChainElement } from 'src/app/models/IChainElement';
 
 @Component({
@@ -9,11 +9,26 @@ import { IChainElement } from 'src/app/models/IChainElement';
 export class ChainElementComponent implements OnInit {
 
   @Input() element!: IChainElement;
+  @Input() ideaId!: Number;
   @Input() onlyApproved! :boolean;
+  @Input() ownerId! : number;
+  @Output() newItemEvent = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  isCurrentUserAuthor() : boolean{
+    let useId = Number(localStorage.getItem("user_id"));
+    if(this.ownerId === useId){
+      return true;
+    }
+    return false;
+  }
+
+  approvedChain(){
+    this.newItemEvent.emit(this.element.id);
   }
 
 }

@@ -1,0 +1,23 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .create-element{
+        width: 90%;
+        border: 1px solid;
+        border-radius: 10px;
+    }
+
+    .name{
+        width: 100%;
+    }
+
+    .description{
+        width: 100%;
+        resize: none;
+        flex: 1;
+    }
+}

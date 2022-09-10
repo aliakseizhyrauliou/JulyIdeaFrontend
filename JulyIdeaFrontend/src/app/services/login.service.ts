@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { IIdea } from '../models/Idea';
 import { ILogin } from '../models/ILogin';
 import { ITokenResponce } from '../models/ITokenResponce';
+import { IRegistration } from '../models/IRegistration';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,21 @@ export class LoginService {
         return true;
       }
       return false;
+  }
+
+  async registration(regModel : IRegistration ) : Promise<boolean>{
+    var result = await this.http.post<ITokenResponce>(this.apiUrl + "/Auth/Register", regModel).toPromise();
+
+    if(result?.isSuccess){
+      console.log(result);
+      localStorage.setItem("access_token", result.result.accessToken);
+      localStorage.setItem("refresh_token", result.result.refreshToken);
+      localStorage.setItem("user_name", result.result.userName);
+      localStorage.setItem("user_id", result.result.userId.toString());
+      return true;
+    }
+
+    return false;
   }
 
   async refresh(refreshToken : string) : Promise<boolean>{

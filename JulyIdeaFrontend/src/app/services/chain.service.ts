@@ -15,5 +15,14 @@ export class ChainService {
     console.log(ideaId);
     return this.http.get<IChainElement[]>(this.apiUrl + `/chain/GetChainElementsByIdeaId?ideaId=${ideaId}&onlyApproved=${onlyApproved}`);
   }
+
+  approvedElement(elementId: number) : Observable<IChainElement>{
+    return this.http.get<IChainElement>(this.apiUrl + `/chain/ConfirmChainElement?chaninId=${elementId}`);
+  }
+
+  createElement(element: IChainElement) : Observable<IChainElement>{
+    return this.http.post<IChainElement>(this.apiUrl + "/chain/CreateChainElement", element);
+  }
+
   
 }

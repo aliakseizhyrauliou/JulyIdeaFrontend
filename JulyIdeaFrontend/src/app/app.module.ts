@@ -28,6 +28,8 @@ import { ChainTemplateComponent } from './components/idea-info/chain-template/ch
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { UserIdeasComponent } from './components/my-profile/user-ideas/user-ideas.component';
 import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
+import { RegComponent } from './components/reg/reg.component';
+import { CreateElementComponent } from './components/idea-info/create-element/create-element.component';
 
 
 export function tokenGetter() { 
@@ -52,6 +54,8 @@ export function tokenGetter() {
     MyProfileComponent,
     UserIdeasComponent,
     CreateIdeaComponent,
+    RegComponent,
+    CreateElementComponent,
   ],
   imports: [
     BrowserModule,

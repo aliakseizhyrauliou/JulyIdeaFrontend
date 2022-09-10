@@ -3,17 +3,6 @@
         <div class="search-component">
             <input #searchBox id="search-box" placeholder="Name" (input)="search(searchBox.value)"/>
         </div>
-        <div class="search-component">
-            <input #searchBox id="search-box" placeholder="Stack" />
-        </div>
-        <mat-form-field appearance="fill">
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let value of categories" [value]="value">
-                {{value}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
     </div>    
 </div>
 

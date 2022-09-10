@@ -19,6 +19,7 @@
         <div class="element-body">
             {{element.description}}
         </div>
+        <div class="isOwner" *ngIf="isCurrentUserAuthor()" (click)="approvedChain()" >Owner</div>
     </div>
 </div>
 
