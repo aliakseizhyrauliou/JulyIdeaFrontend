@@ -34,4 +34,9 @@ export class ChainTemplateComponent implements OnInit {
     }); 
   }
 
+  addElement(element: IChainElement){
+    this.chainService.createElement(element)
+      .subscribe(x => this.elements.unshift(x));
+  }
+
 }

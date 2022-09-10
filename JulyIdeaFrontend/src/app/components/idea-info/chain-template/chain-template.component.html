@@ -1,4 +1,4 @@
-<app-create-element [ideaId]="ideaId" [ownerId]="ownerId" *ngIf="!onlyApproved"></app-create-element>
+<app-create-element [ideaId]="ideaId" [ownerId]="ownerId" *ngIf="!onlyApproved" (addElement)="addElement($event)"></app-create-element>
 <div *ngIf="elements">
     <div *ngFor="let element of elements">
         <app-chain-element [element]="element" [onlyApproved]='onlyApproved' [ownerId]='ownerId' class="element" (newItemEvent)="approvedElement($event)"></app-chain-element>

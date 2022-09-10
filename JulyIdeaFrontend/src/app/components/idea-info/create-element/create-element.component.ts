@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IChainElement } from 'src/app/models/IChainElement';
 import { ChainService } from 'src/app/services/chain.service';
@@ -14,6 +14,7 @@ export class CreateElementComponent implements OnInit {
   element : IChainElement;
   @Input() ideaId!: number;
   @Input() ownerId! : number;
+  @Output() addElement = new EventEmitter<IChainElement>();
 
 
   constructor(private chainService: ChainService) { 
@@ -36,8 +37,8 @@ export class CreateElementComponent implements OnInit {
     this.elementForm.get("rootIdeaOwnerId")?.setValue(this.ownerId);
 
     let element = Object.assign(this.element, this.elementForm.value);
-    this.chainService.createElement(element)
-      .subscribe(x => this.element = {} as IChainElement);
+    this.addElement.emit(element);
+    this.element = {} as IChainElement;
   }
 
 }
