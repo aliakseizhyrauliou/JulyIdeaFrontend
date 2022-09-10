@@ -30,6 +30,8 @@ import { UserIdeasComponent } from './components/my-profile/user-ideas/user-idea
 import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
 import { RegComponent } from './components/reg/reg.component';
 import { CreateElementComponent } from './components/idea-info/create-element/create-element.component';
+import { UsersComponent } from './components/users/users.component';
+import { SingleUserComponent } from './components/users/single-user/single-user.component';
 
 
 export function tokenGetter() { 
@@ -56,6 +58,8 @@ export function tokenGetter() {
     CreateIdeaComponent,
     RegComponent,
     CreateElementComponent,
+    UsersComponent,
+    SingleUserComponent,
   ],
   imports: [
     BrowserModule,

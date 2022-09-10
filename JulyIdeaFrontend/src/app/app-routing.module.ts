@@ -9,6 +9,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { RegComponent } from './components/reg/reg.component';
 import { PostHeaderInfoComponent } from './components/startpage/post-header-info/post-header-info.component';
 import { StartPageComponent } from './components/startpage/start-page/start-page.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   {path: "", component: StartPageComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: "registration", component: RegComponent},
   {path: "details/:id", component: IdeaInfoComponent},
   {path: "myprofile", component: MyProfileComponent, canActivate: [AuthGuard]},
-  {path: "createidea", component: CreateIdeaComponent, canActivate: [AuthGuard]}
+  {path: "createidea", component: CreateIdeaComponent, canActivate: [AuthGuard]},
+  {path: "users", component: UsersComponent}
 ];
 
 @NgModule({

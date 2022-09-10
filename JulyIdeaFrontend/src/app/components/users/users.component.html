@@ -1,0 +1,5 @@
+<div class="users" *ngIf="users"> 
+    <div *ngFor="let user of users">
+        <app-single-user [user]="user"></app-single-user>
+    </div>
+</div>

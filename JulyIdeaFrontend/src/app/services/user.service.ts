@@ -15,10 +15,14 @@ export class UserService {
   constructor(private http : HttpClient) { }
 
   getCurrentUserProfile() : Observable<IUser>{
-    return this.http.get<IUser>(this.apiUrl + "/auth/GetCurrentUserInfo");
+    return this.http.get<IUser>(this.apiUrl + "/users/GetCurrentUserInfo");
   }
 
   getUserProfile(userId: number) : Observable<IUser>{
-    return this.http.get<IUser>(this.apiUrl + "/auth/GetUserInfo?userId=" + userId);
+    return this.http.get<IUser>(this.apiUrl + "/users/GetUserInfo?userId=" + userId);
+  }
+
+  getUsers() : Observable<IUser[]>{
+    return this.http.get<IUser[]>(this.apiUrl + "/users/GetUsers");
   }
 }
