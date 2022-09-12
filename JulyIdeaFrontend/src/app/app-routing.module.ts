@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './AuthGuard';
 import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
+import { GroupsComponent } from './components/groups/groups.component';
 import { IdeaInfoComponent } from './components/idea-info/idea-info.component';
 import { IdeasComponent } from './components/ideas/ideas.component';
 import { LoginComponent } from './components/login/login.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: "details/:id", component: IdeaInfoComponent},
   {path: "myprofile", component: MyProfileComponent, canActivate: [AuthGuard]},
   {path: "createidea", component: CreateIdeaComponent, canActivate: [AuthGuard]},
-  {path: "users", component: UsersComponent}
+  {path: "users", component: UsersComponent},
+  {path: "groups", component: GroupsComponent}
 ];
 
 @NgModule({

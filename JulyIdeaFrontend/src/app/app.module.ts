@@ -32,6 +32,8 @@ import { RegComponent } from './components/reg/reg.component';
 import { CreateElementComponent } from './components/idea-info/create-element/create-element.component';
 import { UsersComponent } from './components/users/users.component';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
+import { GroupsComponent } from './components/groups/groups.component';
+import { SingleGroupsComponent } from './components/groups/single-groups/single-groups.component';
 
 
 export function tokenGetter() { 
@@ -60,6 +62,8 @@ export function tokenGetter() {
     CreateElementComponent,
     UsersComponent,
     SingleUserComponent,
+    GroupsComponent,
+    SingleGroupsComponent,
   ],
   imports: [
     BrowserModule,
