@@ -10,7 +10,7 @@
             </div>
             <div class="category">
                     <mat-label>{{selectedOption}}</mat-label>
-                    <mat-select multiple formControlName="category" (selectionChange)="changeCategory($event)" >
+                    <mat-select  formControlName="category" (selectionChange)="changeCategory($event)" >
                       <mat-option *ngFor="let suit of category" [value]="suit.title"  [attr.selected] ="suit.title === selectedOption">
                         {{suit.title}}
                       </mat-option>

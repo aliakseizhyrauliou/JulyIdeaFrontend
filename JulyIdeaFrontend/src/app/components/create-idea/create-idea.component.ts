@@ -13,7 +13,10 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class CreateIdeaComponent implements OnInit {
 
-  category = [{value : IdeaCategory.Development, title: "Development"}, {value: IdeaCategory.Art, title: "Art"}];
+  category = [{value : IdeaCategory.Development, title: "Development"}, 
+    {value: IdeaCategory.Art, title: "Art"},
+    {value: IdeaCategory.Finance, title: "Finance"}];
+
   idea: IIdea;
   ideaForm: FormGroup;
   selectedOption: String = "Select category";  
@@ -27,7 +30,6 @@ export class CreateIdeaComponent implements OnInit {
       name : new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
-      categoryString: new FormControl('', Validators.required),
       stack: new FormArray([
 
       ])
@@ -46,10 +48,9 @@ export class CreateIdeaComponent implements OnInit {
   } 
 
   changeCategory(e : MatSelectChange){
-    this.selectedOption = e.value[0];
+    this.selectedOption = e.value;
     let value = this.category
-      .find(x => x.title === e.value[0])?.value;
-    debugger;
+      .find(x => x.title === e.value)?.value;
     this.ideaForm.controls["category"].setValue(value),{
       onlySelf: true
     };
@@ -59,10 +60,12 @@ export class CreateIdeaComponent implements OnInit {
     (<FormArray>this.ideaForm.controls["stack"]).push(new FormControl(''));
   }
   send(){
+    debugger;
     if(!this.ideaForm.valid){
       return;
     }
     this.idea = Object.assign(this.idea, this.ideaForm.value);
+    console.log(this.idea);
     this.ideaService.createIdea(this.idea)
       .subscribe(x => x);
   }
