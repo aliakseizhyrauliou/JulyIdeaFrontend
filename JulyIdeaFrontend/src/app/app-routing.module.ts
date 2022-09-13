@@ -10,6 +10,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { RegComponent } from './components/reg/reg.component';
 import { PostHeaderInfoComponent } from './components/startpage/post-header-info/post-header-info.component';
 import { StartPageComponent } from './components/startpage/start-page/start-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: "myprofile", component: MyProfileComponent, canActivate: [AuthGuard]},
   {path: "createidea", component: CreateIdeaComponent, canActivate: [AuthGuard]},
   {path: "users", component: UsersComponent},
-  {path: "groups", component: GroupsComponent}
+  {path: "groups", component: GroupsComponent},
+  {path: "profile/:userName", component: UserProfileComponent}
 ];
 
 @NgModule({

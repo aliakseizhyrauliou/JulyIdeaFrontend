@@ -1,5 +1,5 @@
-<div class="users" *ngIf="users"> 
+<div class="users" *ngIf="users" (click)="checkIfCurrentUserAdmin()"> 
     <div *ngFor="let user of users">
-        <app-single-user [user]="user"></app-single-user>
+        <app-single-user [user]="user" ></app-single-user>
     </div>
 </div>

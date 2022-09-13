@@ -22,7 +22,11 @@ export class UserService {
     return this.http.get<IUser>(this.apiUrl + "/users/GetUserInfo?userId=" + userId);
   }
 
-  getUsers() : Observable<IUser[]>{
-    return this.http.get<IUser[]>(this.apiUrl + "/users/GetUsers");
+  getUsers(includeCurrentUser: boolean = false) : Observable<IUser[]>{
+    return this.http.get<IUser[]>(this.apiUrl + "/users/GetUsers?includeCurrentUser=" + includeCurrentUser);
+  }
+
+  getUserProfileByUserName(userName: string) : Observable<IUser>{
+    return this.http.get<IUser>(this.apiUrl +"/users/GetUserInfoByUserName?userName=" + userName);
   }
 }

@@ -34,6 +34,7 @@ import { UsersComponent } from './components/users/users.component';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { SingleGroupsComponent } from './components/groups/single-groups/single-groups.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 export function tokenGetter() { 
@@ -64,6 +65,7 @@ export function tokenGetter() {
     SingleUserComponent,
     GroupsComponent,
     SingleGroupsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
