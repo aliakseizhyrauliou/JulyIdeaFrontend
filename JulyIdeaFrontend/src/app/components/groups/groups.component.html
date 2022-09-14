@@ -1,5 +1,8 @@
-<div>
-    <div *ngFor="let group of groups">
-        <app-single-groups [group]="group"></app-single-groups>
+<div class="wrapper">
+    <div *ngFor="let group of groups" class="groups">
+        <app-single-groups [group]="group" 
+            (joinGroup)="JoinGroupParent($event)"
+            (click)="redirect(group.id)">
+        </app-single-groups>
     </div>
 </div>

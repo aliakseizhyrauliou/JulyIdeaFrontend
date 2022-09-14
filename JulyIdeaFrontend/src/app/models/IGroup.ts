@@ -1,5 +1,7 @@
 export interface IGroup{
+    id: number;
     name: string;
     description: string;
-    memberCount: string;
+    membersCount: number;
+    isCurrentUserMember: boolean;
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IGroup } from 'src/app/models/IGroup';
 
 @Component({
@@ -9,10 +9,15 @@ import { IGroup } from 'src/app/models/IGroup';
 export class SingleGroupsComponent implements OnInit {
 
   @Input() group!: IGroup;
+  @Output() joinGroup = new EventEmitter<number>();
   
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  JoinGroup(){
+    this.joinGroup.emit(this.group.id);
+  } 
 
 }

@@ -35,6 +35,9 @@ import { SingleUserComponent } from './components/users/single-user/single-user.
 import { GroupsComponent } from './components/groups/groups.component';
 import { SingleGroupsComponent } from './components/groups/single-groups/single-groups.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import {MatButtonModule} from '@angular/material/button';
+import { GroupDetailsComponent } from './components/groups/group-details/group-details.component';
+import { GroupIdeasTemplateComponent } from './components/groups/group-details/group-ideas-template/group-ideas-template.component';
 
 
 export function tokenGetter() { 
@@ -66,6 +69,8 @@ export function tokenGetter() {
     GroupsComponent,
     SingleGroupsComponent,
     UserProfileComponent,
+    GroupDetailsComponent,
+    GroupIdeasTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +84,7 @@ export function tokenGetter() {
     NgbModule,
     MatTabsModule,
     MatSelectModule,
+    MatButtonModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

@@ -1,5 +1,13 @@
-<div *ngIf="group">
-    <div>
-        {{group.name}}
+<div class="wrapper">
+    <div *ngIf="group" class="group-container">
+        <div class="header">
+            {{group.name}}
+            {{group.membersCount}} members
+        </div>
+        <div class="group-body">
+            <div class="description">
+                {{group.description}}
+            </div>
+        </div>
     </div>
 </div>

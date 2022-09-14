@@ -1,0 +1,24 @@
+<div class="wrapper" *ngIf="group">
+    <div class="group-container">
+        <div class="main-info">
+            <div class="title">
+                <div class="group-name">
+                    {{group.name}}
+                </div>
+                <div class="members-count-and-join">
+                    <button mat-flat-button color="accent" class="join-group" (click)="JoinGroup()" *ngIf="!group.isCurrentUserMember">Join</button>      
+                    <button mat-flat-button color="accent" class="join-group" (click)="leaveGroup()" *ngIf="group.isCurrentUserMember">Leave</button>
+                    <div class="members-count">
+                        {{group.membersCount}} members
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                {{group.description}}
+            </div>
+        </div>
+        <div class="groups-ideas">
+            <app-group-ideas-template [ideas]="ideas"></app-group-ideas-template>
+        </div>
+    </div>
+</div>
