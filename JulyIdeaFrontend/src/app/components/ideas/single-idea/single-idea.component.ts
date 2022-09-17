@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { IdeaCategory } from 'src/app/models/enums/IdeaType';
 import { IIdea } from 'src/app/models/Idea';
@@ -15,6 +15,8 @@ export class SingleIdeaComponent implements OnInit {
   ART : string = "art";
 
   @Input() Idea!: IIdea;
+  @Output() Addlike = new EventEmitter<number>();
+  @Output() Removelike = new EventEmitter<number>();
 
   class: string = "";
   constructor(private router: Router) {
@@ -36,6 +38,15 @@ export class SingleIdeaComponent implements OnInit {
         this.class = this.ART;
         break;
     }
+  }
+
+
+  addLike(ideaId: number){
+    this.Addlike.emit(ideaId);
+  }
+
+  removeLike(ideaId: number){
+    this.Removelike.emit(ideaId);
   }
 
   redirect(id: number){

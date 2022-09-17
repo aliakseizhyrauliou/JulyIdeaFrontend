@@ -41,4 +41,24 @@ export class IdeasComponent implements OnInit {
       console.log("Loaded");
   }
 
+  addLike(ideaId : number){
+    this.ideasService.addLike(ideaId)
+      .subscribe(x => {
+        if(x){
+          let index = this._ideas.findIndex(q => q.id === x.id);
+          this._ideas[index].isLikedByCurrentUser = true;
+        }
+      })
+  }
+
+  removeLike(ideaId: number){
+    this.ideasService.removeLike(ideaId)
+      .subscribe(x => {
+        if(x){
+          let index = this._ideas.findIndex(q => q.id === x.id);
+          this._ideas[index].isLikedByCurrentUser = false;
+        }
+      })
+  }
+
 }

@@ -9,4 +9,5 @@ export interface IIdea{
     category: IdeaCategory;
     categoryString : string;
     stack: string[];
+    isLikedByCurrentUser: boolean;
 }

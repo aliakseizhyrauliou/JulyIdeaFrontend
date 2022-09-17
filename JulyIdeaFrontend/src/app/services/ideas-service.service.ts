@@ -43,4 +43,13 @@ export class IdeasServiceService {
   getPortionOfIdeas(portionNumber: number) : Observable<IIdea[]>{
     return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetPortionOfIdeas?groupNumber=" + portionNumber);
   }
+
+  addLike(ideaId: number) : Observable<IIdea>{
+    return this.http.get<IIdea>(this.apiUrl + "/Ideas/AddLike?ideaId=" + ideaId);
+  }
+
+  
+  removeLike(ideaId: number) : Observable<IIdea>{
+    return this.http.get<IIdea>(this.apiUrl + "/Ideas/RemoveLike?ideaId=" + ideaId);
+  }
 }

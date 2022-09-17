@@ -1,17 +1,25 @@
-<div class="idea-wrapper" *ngIf="Idea" (click)="redirect(Idea.id)">
+<div class="idea-wrapper" *ngIf="Idea">
     <div class="idea-header" [class]="class">
-        <div class="conatiner">
-            {{Idea.name}}
-            <div class="circle-name">
-               <div class="circle-avatar"></div>
-               <div class="user-name">Alexey Zhurauliou</div>
-           </div>
+        <div class="name-icon">
+            <div class="conatiner">
+                {{Idea.name}}
+                <div class="circle-name">
+                   <div class="circle-avatar"></div>
+                   <div class="user-name">Alexey Zhurauliou</div>
+               </div>
+            </div>
+            <div *ngIf="Idea.isLikedByCurrentUser" (click)="removeLike(Idea.id)">
+                <img class='like-icon active' src="/assets/images/like-red.svg" >
+            </div>
+            <div *ngIf="!Idea.isLikedByCurrentUser" (click)="addLike(Idea.id)">
+                <img class='like-icon inactive' src="/assets/images/likeborder.svg" >
+            </div>
         </div>
         <div class="category">
             {{Idea.categoryString}}
         </div>
     </div>
-    <div class="idea-descriptions">
+    <div class="idea-descriptions" (click)="redirect(Idea.id)">
         <div class="idea-desc">
             {{Idea.description}}
         </div>

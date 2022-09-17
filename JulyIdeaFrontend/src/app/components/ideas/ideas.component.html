@@ -5,6 +5,6 @@
     
     <app-idea-search (ideaSearch)="search($event)"></app-idea-search>
     <div class="idea" *ngFor="let idea of _ideas">
-        <app-single-idea [Idea]="idea"></app-single-idea>
+        <app-single-idea [Idea]="idea" (Addlike)="addLike($event)" (Removelike)="removeLike($event)"></app-single-idea>
     </div>
 </div>
