@@ -1,4 +1,8 @@
-<div class="wrapper">
+<div class="wrapper" infinite-scroll 
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+    
     <app-idea-search (ideaSearch)="search($event)"></app-idea-search>
     <div class="idea" *ngFor="let idea of _ideas">
         <app-single-idea [Idea]="idea"></app-single-idea>

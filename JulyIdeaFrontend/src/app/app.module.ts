@@ -38,7 +38,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {MatButtonModule} from '@angular/material/button';
 import { GroupDetailsComponent } from './components/groups/group-details/group-details.component';
 import { GroupIdeasTemplateComponent } from './components/groups/group-details/group-ideas-template/group-ideas-template.component';
-
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -85,6 +86,7 @@ export function tokenGetter() {
     MatTabsModule,
     MatSelectModule,
     MatButtonModule,
+    InfiniteScrollModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -101,4 +103,5 @@ export function tokenGetter() {
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

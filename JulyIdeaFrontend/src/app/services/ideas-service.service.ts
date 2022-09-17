@@ -39,4 +39,8 @@ export class IdeasServiceService {
   getGroupsIdea(groupId: number) : Observable<IIdea[]>{
     return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetGroupIdeas?groupId=" + groupId);
   }
+
+  getPortionOfIdeas(portionNumber: number) : Observable<IIdea[]>{
+    return this.http.get<IIdea[]>(this.apiUrl + "/Ideas/GetPortionOfIdeas?groupNumber=" + portionNumber);
+  }
 }

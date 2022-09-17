@@ -10,14 +10,19 @@ import { IdeasServiceService } from 'src/app/services/ideas-service.service';
 })
 export class IdeasComponent implements OnInit {
 
+  portionNumber: number = 1;
+
   constructor(private ideasService: IdeasServiceService,
     private router: Router) { }
 
   _ideas!: IIdea[];
 
   ngOnInit(): void {
-    this.ideasService.getIdeas()
-      .subscribe(ideas => this._ideas = ideas);
+    this.ideasService.getPortionOfIdeas(this.portionNumber)
+      .subscribe(x => {
+        this._ideas = x;
+        this.portionNumber++;
+      });
       
   }
 
@@ -27,5 +32,13 @@ export class IdeasComponent implements OnInit {
     
   }
 
+  onScroll(){
+    this.ideasService.getPortionOfIdeas(this.portionNumber)
+      .subscribe(x => {
+        this._ideas = this._ideas.concat(x);
+        this.portionNumber++;
+      });
+      console.log("Loaded");
+  }
 
 }
