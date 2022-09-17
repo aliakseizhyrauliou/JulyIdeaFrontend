@@ -1,8 +1,9 @@
 .wrapper{
   border: 1px solid;
-  width: 300px;
+  width: 400px;
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: space-around;
   align-items: center;
   height: 100px;
   margin-bottom: 100px;

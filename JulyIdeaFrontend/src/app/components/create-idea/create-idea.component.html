@@ -2,31 +2,33 @@
     <div class="idea-wrapper" [formGroup]="ideaForm">
         <div class="idea-header">
             <div class="conatiner">
-                <input  placeholder="name" formControlName='name'/>
+                <input  placeholder="name" formControlName='name' class="name"/>
                 <div class="circle-name">
                    <div class="circle-avatar"></div>
                    <div class="user-name">Alexey Zhurauliou</div>
                </div>
             </div>
             <div class="category">
+                <mat-form-field appearance="fill">
                     <mat-label>{{selectedOption}}</mat-label>
                     <mat-select  formControlName="category" (selectionChange)="changeCategory($event)" >
                       <mat-option *ngFor="let suit of category" [value]="suit.title"  [attr.selected] ="suit.title === selectedOption">
                         {{suit.title}}
                       </mat-option>
                     </mat-select>
+                </mat-form-field>
             </div>
         </div>
         <div class="idea-descriptions">
             <div class="idea-desc">
-                <input formControlName="description"  placeholder="desc" type="text"/>
+                <input formControlName="description"  placeholder="desc" type="text" class="description"/>
             </div>
             <div class="idea-info">
                 <div class="info-header">
                 </div>
                 <div class="idea-info-body" formArrayName="stack" style="flex:1;">
                     <ng-container *ngFor="let stack of getFormsControls()['controls']; let i = index;" class="stack">
-                        <input type='text' formControlName={{i}}/>
+                        <input type='text' formControlName={{i}} class="stack-inp"/>
                     </ng-container>
                 </div>
                 <button (click)="addStack()" type="button" id="addStack" class="btn btn-warning">Add Stack</button>

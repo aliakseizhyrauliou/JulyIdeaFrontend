@@ -48,7 +48,6 @@ export class IdeasServiceService {
     return this.http.get<IIdea>(this.apiUrl + "/Ideas/AddLike?ideaId=" + ideaId);
   }
 
-  
   removeLike(ideaId: number) : Observable<IIdea>{
     return this.http.get<IIdea>(this.apiUrl + "/Ideas/RemoveLike?ideaId=" + ideaId);
   }

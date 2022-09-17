@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/IUser';
+import { IdeasServiceService } from 'src/app/services/ideas-service.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,5 +21,6 @@ export class MyProfileComponent implements OnInit {
     this.userService.getCurrentUserProfile()
       .subscribe(user => this.currentUser = user);
   }
+
 
 }

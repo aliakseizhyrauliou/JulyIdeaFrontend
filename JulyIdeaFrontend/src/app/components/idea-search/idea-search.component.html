@@ -1,4 +1,11 @@
 <div class="wrapper">
+    <a routerLink="/createidea">    
+        <div class="example-button-container">
+        <button mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">
+          +
+        </button>
+      </div>
+    </a>
     <div class="search-container">
         <div class="search-component">
             <input #searchBox id="search-box" placeholder="Name" (input)="search(searchBox.value)"/>
