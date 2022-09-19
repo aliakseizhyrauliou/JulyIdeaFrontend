@@ -4,7 +4,7 @@
     (scrolled)="onScroll()">
     
     <app-idea-search (ideaSearch)="search($event)"></app-idea-search>
-    <div class="idea" *ngFor="let idea of _ideas">
-        <app-single-idea [Idea]="idea" (Addlike)="addLike($event)" (Removelike)="removeLike($event)"></app-single-idea>
+    <div class="ideas-wrapper">
+        <app-ideas-template [ideas]="_ideas"></app-ideas-template>
     </div>
 </div>

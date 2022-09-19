@@ -40,6 +40,7 @@ import { GroupDetailsComponent } from './components/groups/group-details/group-d
 import { GroupIdeasTemplateComponent } from './components/groups/group-details/group-ideas-template/group-ideas-template.component';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { IdeasTemplateComponent } from './components/ideas/ideas-template/ideas-template.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -72,6 +73,7 @@ export function tokenGetter() {
     UserProfileComponent,
     GroupDetailsComponent,
     GroupIdeasTemplateComponent,
+    IdeasTemplateComponent,
   ],
   imports: [
     BrowserModule,

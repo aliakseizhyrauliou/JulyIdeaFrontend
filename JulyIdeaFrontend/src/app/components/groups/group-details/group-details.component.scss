@@ -5,11 +5,18 @@
     flex-direction: column;
     align-items: center;
 
+
+
     .group-container{
         width: 80%;
         background-color: white;
         border-radius: 10px;
-        height: 200px;
+        height: 350px;
+    }
+
+        .groups-ideas{
+            margin-top: 100px;
+        }
 
         .title{
             display: flex;
@@ -39,4 +46,3 @@
             padding: 30px;
         }
     }
-}

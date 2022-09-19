@@ -1,0 +1,5 @@
+<div class="wraper">
+    <div class="idea" *ngFor="let idea of ideas">
+        <app-single-idea [Idea]="idea" (Addlike)="addLike($event)" (Removelike)="removeLike($event)"></app-single-idea>
+    </div>
+</div>
