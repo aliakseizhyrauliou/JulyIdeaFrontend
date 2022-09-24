@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './AuthGuard';
 import { CreateIdeaComponent } from './components/create-idea/create-idea.component';
+import { DialogInfoComponent } from './components/dialogs/dialog-info/dialog-info.component';
+import { DialogsComponent } from './components/dialogs/dialogs.component';
 import { GroupDetailsComponent } from './components/groups/group-details/group-details.component';
 import { GroupsComponent } from './components/groups/groups.component';
 import { IdeaInfoComponent } from './components/idea-info/idea-info.component';
@@ -25,7 +27,9 @@ const routes: Routes = [
   {path: "users", component: UsersComponent},
   {path: "groups", component: GroupsComponent},
   {path: "profile/:userName", component: UserProfileComponent},
-  {path: "group/:id", component: GroupDetailsComponent}
+  {path: "group/:id", component: GroupDetailsComponent},
+  {path: "dialogs", component: DialogsComponent},
+  {path: "dialog/:id", component: DialogInfoComponent}
 ];
 
 @NgModule({

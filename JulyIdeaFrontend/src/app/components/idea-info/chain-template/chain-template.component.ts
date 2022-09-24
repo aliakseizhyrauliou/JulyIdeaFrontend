@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IChainElement } from 'src/app/models/IChainElement';
 import { ChainService } from 'src/app/services/chain.service';
 
@@ -28,10 +29,12 @@ export class ChainTemplateComponent implements OnInit {
   }
 
   approvedElement(elementId : number){
-   this.chainService.approvedElement(elementId)
-    .subscribe(x => {
-      this.getChainElementsOfIdea(this.ideaId, this.onlyApproved);
-    }); 
+    this.chainService.approvedElement(elementId)
+      .subscribe(x => {
+        let index = this.elements.findIndex(q => q.id === x.id);
+        this.elements[index].isConfirmed = true;
+      }); 
+
   }
 
   addElement(element: IChainElement){

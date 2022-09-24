@@ -1,0 +1,5 @@
+<div class="wrapper" *ngIf="dialogs">
+    <div *ngFor="let dialog of dialogs" class="dialogs-wrapper">
+        <app-single-dialog [dialog]="dialog"></app-single-dialog>
+    </div>
+</div>

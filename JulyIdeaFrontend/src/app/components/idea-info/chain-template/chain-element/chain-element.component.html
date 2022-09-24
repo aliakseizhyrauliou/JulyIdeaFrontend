@@ -1,6 +1,6 @@
 <div class="main-wrapper">
     <div class="arrow" *ngIf="onlyApproved"></div>
-    <div class="wrapper-element">
+    <div class="wrapper-element" @approve *ngIf="onlyApproved? element.isConfirmed :!element.isConfirmed">
         <div class="header">
             <div>
                 <div class="idea-name">
@@ -14,12 +14,14 @@
                 <img class='icon' src="assets/images/checked.png" />
                 <span>Approved</span>
             </div>
+            <div class="approve-element">
+                <button type="button" class="btn btn-success" id="approve-button" (click)="approvedChain()">Approve</button>
+            </div>
         </div>
 
         <div class="element-body">
             {{element.description}}
         </div>
-        <div class="isOwner" *ngIf="isCurrentUserAuthor()" (click)="approvedChain()" >Owner</div>
     </div>
 </div>
 

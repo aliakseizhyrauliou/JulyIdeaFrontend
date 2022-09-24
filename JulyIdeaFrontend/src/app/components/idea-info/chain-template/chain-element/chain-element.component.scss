@@ -58,5 +58,9 @@
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         border-top: none;
+
+        .approve-button{
+            align-self: flex-end;
+        }
     }
 }

@@ -1,10 +1,26 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IChainElement } from 'src/app/models/IChainElement';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-chain-element',
   templateUrl: './chain-element.component.html',
-  styleUrls: ['./chain-element.component.scss']
+  styleUrls: ['./chain-element.component.scss'],
+  animations: [
+    trigger("approve", [
+      transition('void <=> *', [
+        style({opacity: "0"}),
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class ChainElementComponent implements OnInit {
 
