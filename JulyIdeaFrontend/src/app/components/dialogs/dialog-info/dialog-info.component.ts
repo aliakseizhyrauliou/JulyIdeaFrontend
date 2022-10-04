@@ -18,12 +18,14 @@ export class DialogInfoComponent implements OnInit {
   accessToken : string;
   private _hubConnection: HubConnection | undefined;
   companionId!: number;
+  currentUserId!: number;
 
   constructor(private signalR: SignalrService, 
     private messageService: MessagesService, private _activatedroute : ActivatedRoute) { 
     this.message = {} as IMessage;
     this.accessToken = localStorage.getItem("access_token")!;
     this.companionId = Number(this._activatedroute.snapshot.paramMap.get('id'));
+    this.currentUserId = Number(localStorage.getItem("user_id"));
   }
 
   ngOnInit() {
@@ -54,10 +56,11 @@ export class DialogInfoComponent implements OnInit {
   }
 
   getMessages(){
-    alert(this.companionId);
     this.messageService.getMessagesOfTwoUser(this.companionId)
       .subscribe(x => this.messages = x);
   }
+
+  
 
   
 
