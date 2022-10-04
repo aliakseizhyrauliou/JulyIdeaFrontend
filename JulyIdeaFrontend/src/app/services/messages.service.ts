@@ -26,4 +26,8 @@ export class MessagesService {
     return this.http.get<any>(this.apiUrl + "/Messages/CheckServer");
   }
 
+  getMessagesOfTwoUser(companionId : number) : Observable<IMessage[]>{
+    return this.http.get<IMessage[]>(this.apiUrl + "/Messages/GetMessagesOfTwoUsers?companionId=" + companionId);
+  }
+
 }

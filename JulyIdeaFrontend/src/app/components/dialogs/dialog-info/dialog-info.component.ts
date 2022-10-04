@@ -4,6 +4,7 @@ import { MessagesService } from 'src/app/services/messages.service';
 import { SignalrService } from 'src/app/services/signalr.service';
 import { HubConnection } from '@microsoft/signalr';
 import * as signalR from '@microsoft/signalr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-info',
@@ -16,11 +17,13 @@ export class DialogInfoComponent implements OnInit {
   messages: IMessage[] = [];
   accessToken : string;
   private _hubConnection: HubConnection | undefined;
+  companionId!: number;
 
   constructor(private signalR: SignalrService, 
-    private messageService: MessagesService) { 
+    private messageService: MessagesService, private _activatedroute : ActivatedRoute) { 
     this.message = {} as IMessage;
     this.accessToken = localStorage.getItem("access_token")!;
+    this.companionId = Number(this._activatedroute.snapshot.paramMap.get('id'));
   }
 
   ngOnInit() {
@@ -34,6 +37,8 @@ export class DialogInfoComponent implements OnInit {
     this._hubConnection.on('ReceiveMessage', (data: IMessage) => {;
       this.messages.push(data);
     });
+
+    this.getMessages();
   }
 
   sendMessage(){
@@ -46,6 +51,12 @@ export class DialogInfoComponent implements OnInit {
   checkServer(){
     this.messageService.checkServer()
       .subscribe(x => console.log(x));
+  }
+
+  getMessages(){
+    alert(this.companionId);
+    this.messageService.getMessagesOfTwoUser(this.companionId)
+      .subscribe(x => this.messages = x);
   }
 
   

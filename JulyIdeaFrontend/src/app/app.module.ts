@@ -42,10 +42,9 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { IdeasTemplateComponent } from './components/ideas/ideas-template/ideas-template.component';
 import { DialogsComponent } from './components/dialogs/dialogs.component';
-import { MessagesTemplateComponent } from './components/messages-template/messages-template.component';
-import { MessageComponent } from './components/message/message.component';
 import { SingleDialogComponent } from './components/dialogs/single-dialog/single-dialog.component';
 import { DialogInfoComponent } from './components/dialogs/dialog-info/dialog-info.component';
+import { MessageComponent } from './components/dialogs/message/message.component';
 
 export function tokenGetter() { 
   return localStorage.getItem("access_token"); 
@@ -80,10 +79,9 @@ export function tokenGetter() {
     GroupIdeasTemplateComponent,
     IdeasTemplateComponent,
     DialogsComponent,
-    MessagesTemplateComponent,
-    MessageComponent,
     SingleDialogComponent,
     DialogInfoComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
