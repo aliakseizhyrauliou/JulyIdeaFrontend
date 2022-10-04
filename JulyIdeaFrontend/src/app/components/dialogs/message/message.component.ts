@@ -9,6 +9,7 @@ import { IMessage } from 'src/app/models/IMessage';
 export class MessageComponent implements OnInit {
 
   @Input() message!: IMessage;
+  @Input() userId!: number;
 
   constructor() { }
 

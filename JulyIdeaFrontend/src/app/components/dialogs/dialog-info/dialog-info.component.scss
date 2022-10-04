@@ -1,0 +1,14 @@
+.messages-template{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    .messages{
+        width: 70%;
+    }
+
+    .input-wrapper{
+        width: 50%;
+    }
+}

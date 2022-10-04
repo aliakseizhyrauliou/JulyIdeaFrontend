@@ -1,4 +1,13 @@
 .message-wrapper{
     border-radius: 10px;
     border: 1px solid;
+    display: flex;
+}
+
+.sent{
+    justify-content: flex-end;
+}
+
+.received{
+    justify-content: flex-start;
 }
