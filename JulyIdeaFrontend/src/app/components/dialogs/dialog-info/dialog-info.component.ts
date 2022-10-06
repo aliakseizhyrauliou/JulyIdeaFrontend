@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IMessage } from 'src/app/models/IMessage';
 import { MessagesService } from 'src/app/services/messages.service';
 import { SignalrService } from 'src/app/services/signalr.service';
@@ -13,12 +13,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DialogInfoComponent implements OnInit {
 
+  @Input() companionUserName: string;
   message: IMessage;
   messages: IMessage[] = [];
   accessToken : string;
   private _hubConnection: HubConnection | undefined;
   companionId!: number;
   currentUserId!: number;
+  currentUserName: string;
 
   constructor(private signalR: SignalrService, 
     private messageService: MessagesService, private _activatedroute : ActivatedRoute) { 
@@ -26,6 +28,7 @@ export class DialogInfoComponent implements OnInit {
     this.accessToken = localStorage.getItem("access_token")!;
     this.companionId = Number(this._activatedroute.snapshot.paramMap.get('id'));
     this.currentUserId = Number(localStorage.getItem("user_id"));
+    this.currentUserName = localStorage.getItem("user_name")!;
   }
 
   ngOnInit() {
