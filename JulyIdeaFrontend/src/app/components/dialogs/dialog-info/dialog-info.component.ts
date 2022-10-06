@@ -43,11 +43,12 @@ export class DialogInfoComponent implements OnInit {
     this.getMessages();
   }
 
-  sendMessage(){
-    this.message.receiverId = 6;
-    this.message.text = "Hello world";
-    this.messageService.sendMessage(this.message)
-      .subscribe(x => console.log("Ok"));
+  sendMessage(message: IMessage){
+    if(message){
+      message.receiverId = this.companionId;
+      this.messageService.sendMessage(message)
+        .subscribe(x => this.messages.push(x));
+    }
   }
 
   checkServer(){

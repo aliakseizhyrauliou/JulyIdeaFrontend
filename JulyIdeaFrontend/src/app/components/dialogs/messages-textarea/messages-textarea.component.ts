@@ -1,6 +1,7 @@
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
-import {Component, NgZone, ViewChild, OnInit} from '@angular/core';
+import {Component, NgZone, ViewChild, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {take} from 'rxjs/operators';
+import { IMessage } from 'src/app/models/IMessage';
 
 @Component({
   selector: 'app-messages-textarea',
@@ -8,11 +9,22 @@ import {take} from 'rxjs/operators';
   styleUrls: ['./messages-textarea.component.scss']
 })
 export class MessagesTextareaComponent implements OnInit {
+
+  message!: IMessage;
+  @Output() onSendMessage = new EventEmitter<IMessage>(); 
  
-  constructor(private _ngZone: NgZone) { }
+  constructor() {
+    this.message = {} as IMessage;
+  }
 
   ngOnInit(): void {
+
   }
+
+
+  sendMessage() {
+    this.onSendMessage.emit(this.message);
+    }
 
 
 }

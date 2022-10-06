@@ -1,9 +1,8 @@
-<button (click)="sendMessage()">Send message</button>
 <div class="messages-template">
     <div *ngFor="let message of messages" class="messages">
         <app-message [message]="message" [userId]="currentUserId"></app-message>
     </div>
     <div class="input-wrapper">
-        <app-messages-textarea></app-messages-textarea>
+        <app-messages-textarea (onSendMessage)="sendMessage($event)"></app-messages-textarea>
     </div>
 </div>

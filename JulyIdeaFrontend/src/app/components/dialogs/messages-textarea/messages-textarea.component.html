@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Send message" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+        <input type="text" class="form-control" placeholder="Send message" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="message.text"/>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="sendMessage()">Button</button>
       </div>
 </div>
