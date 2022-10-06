@@ -1,8 +1,12 @@
 <div class="messages-template">
-    <div *ngFor="let message of messages" class="messages">
-        <app-message [message]="message" [userId]="currentUserId"></app-message>
-    </div>
-    <div class="input-wrapper">
-        <app-messages-textarea (onSendMessage)="sendMessage($event)"></app-messages-textarea>
+    <div class="messages-container">
+        <div class="wrapper">
+            <div *ngFor="let message of messages" class="messages">
+                <app-message [message]="message" [userId]="currentUserId"></app-message>
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <app-messages-textarea (onSendMessage)="sendMessage($event)"></app-messages-textarea>
+        </div>
     </div>
 </div>

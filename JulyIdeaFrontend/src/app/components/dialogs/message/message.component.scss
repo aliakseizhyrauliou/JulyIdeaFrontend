@@ -14,12 +14,12 @@
 
 }
 
-.received{
+.message-wrapper .received{
     justify-content: flex-start;
 
     .message-body{
-        background-color: white;
-        color: black;
+        background-color: #d7621a;
+        color: white;
     }
 }
 

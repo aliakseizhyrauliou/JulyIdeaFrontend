@@ -38,6 +38,8 @@ export class DialogInfoComponent implements OnInit {
 
     this._hubConnection.on('ReceiveMessage', (data: IMessage) => {;
       this.messages.push(data);
+      let wrapper : HTMLElement= document.querySelector('.wrapper') as HTMLElement;
+      wrapper.scrollTop = wrapper.scrollHeight + 100;
     });
 
     this.getMessages();
@@ -47,7 +49,11 @@ export class DialogInfoComponent implements OnInit {
     if(message){
       message.receiverId = this.companionId;
       this.messageService.sendMessage(message)
-        .subscribe(x => this.messages.push(x));
+        .subscribe(x => {
+          this.messages.push(x);
+          let wrapper : HTMLElement= document.querySelector('.wrapper') as HTMLElement;
+          wrapper.scrollTop = wrapper.scrollHeight + 100;
+        });
     }
   }
 

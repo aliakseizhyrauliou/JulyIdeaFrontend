@@ -24,6 +24,7 @@ export class MessagesTextareaComponent implements OnInit {
 
   sendMessage() {
     this.onSendMessage.emit(this.message);
+    this.message = {} as IMessage;
     }
 
 
