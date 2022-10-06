@@ -1,9 +1,12 @@
-<div class="wrapper" *ngIf="dialog">
+<div class="wrapper" *ngIf="dialog" (click)="redirect()">
     <div class="dialog-body">
         <div class="header">
-            <div class="user-name">
-                {{dialog.userId}}
+            <div class="user-name"> 
+                {{dialog.userName}} 
             </div>
+        </div>
+        <div class="last-message">
+            {{dialog.lastMessage.text}}
         </div>
     </div>
 </div>

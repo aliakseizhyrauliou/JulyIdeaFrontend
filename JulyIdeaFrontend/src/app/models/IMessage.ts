@@ -5,4 +5,6 @@ export interface IMessage{
     text: string;
     dateOfSending: Date;
     isViewed: boolean;
+    receiverUserName: string;
+    senderUserName: string;
 }

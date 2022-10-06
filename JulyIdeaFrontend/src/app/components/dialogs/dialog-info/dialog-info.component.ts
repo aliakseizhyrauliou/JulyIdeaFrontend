@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DialogInfoComponent implements OnInit {
 
-  @Input() companionUserName: string;
+  @Input() companionUserName!: string;
   message: IMessage;
   messages: IMessage[] = [];
   accessToken : string;

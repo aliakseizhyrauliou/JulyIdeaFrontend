@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IDialog } from 'src/app/models/IDialog';
 
 @Component({
@@ -10,9 +11,13 @@ export class SingleDialogComponent implements OnInit {
 
 
   @Input() dialog!: IDialog;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  redirect(){
+    this.router.navigate([`/dialog/${this.dialog.userId}`]);
   }
 
 }

@@ -4,4 +4,5 @@ export interface IDialog{
     ownerId: number;
     userId: number;
     lastMessage: IMessage;
+    userName: string;
 }
