@@ -1,5 +1,8 @@
 <div class="messages-template">
     <div class="messages-container">
+        <div class="companion-name">
+            Dialog with {{companionUserName}}
+        </div>
         <div class="wrapper">
             <div *ngFor="let message of messages" class="messages">
                 <app-message [message]="message" [userId]="currentUserId"></app-message>

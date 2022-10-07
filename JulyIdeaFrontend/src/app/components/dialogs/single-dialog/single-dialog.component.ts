@@ -13,6 +13,7 @@ export class SingleDialogComponent implements OnInit {
   @Input() dialog!: IDialog;
   constructor(private router: Router) { }
 
+  
   ngOnInit(): void {
   }
 

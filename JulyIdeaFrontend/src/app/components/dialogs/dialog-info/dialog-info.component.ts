@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DialogInfoComponent implements OnInit {
 
-  @Input() companionUserName!: string;
+  companionUserName!: string;
   message: IMessage;
   messages: IMessage[] = [];
   accessToken : string;
@@ -29,6 +29,7 @@ export class DialogInfoComponent implements OnInit {
     this.companionId = Number(this._activatedroute.snapshot.paramMap.get('id'));
     this.currentUserId = Number(localStorage.getItem("user_id"));
     this.currentUserName = localStorage.getItem("user_name")!;
+
   }
 
   ngOnInit() {
@@ -51,6 +52,8 @@ export class DialogInfoComponent implements OnInit {
   sendMessage(message: IMessage){
     if(message){
       message.receiverId = this.companionId;
+      message.receiverUserName = this.companionUserName;
+      message.senderUserName = this.currentUserName;
       this.messageService.sendMessage(message)
         .subscribe(x => {
           this.messages.push(x);
@@ -67,7 +70,11 @@ export class DialogInfoComponent implements OnInit {
 
   getMessages(){
     this.messageService.getMessagesOfTwoUser(this.companionId)
-      .subscribe(x => this.messages = x);
+      .subscribe(x => {
+        this.messages = x;
+        var firstMessage = this.messages[0];
+        this.companionUserName = this.currentUserId == firstMessage.senderId ? firstMessage.receiverUserName : firstMessage.senderUserName;
+      });
   }
 
   
